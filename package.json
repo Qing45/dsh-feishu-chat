@@ -1,0 +1,60 @@
+{
+  "name": "dsh-feishu-chat",
+  "version": "0.1.0",
+  "description": "Feishu (Lark) bot bridge for DeepSeek Harness: two-way chat with your agent over the Feishu long connection, with a settings page for bot credentials and workspace routing. · 飞书机器人 ↔ DeepSeek Harness 双向聊天桥：飞书消息直达 DSH 智能体，回复自动回到飞书；设置页可换机器人凭证、切换工作区。",
+  "type": "module",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "feishu",
+    "lark",
+    "bot",
+    "chat",
+    "bridge"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qing45/dsh-feishu-chat.git"
+  },
+  "homepage": "https://github.com/Qing45/dsh-feishu-chat#readme",
+  "dependencies": {
+    "protobufjs": "^7.4.0",
+    "ws": "^8.18.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "client",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ]
+}
