@@ -17,7 +17,7 @@ Feishu (Lark) bot bridge for [DeepSeek Harness](https://github.com/deepseek-ai/d
 # from npm (once published) or from this repo:
 dsh plugin --profile web add dsh-feishu-chat
 # or directly from GitHub:
-dsh plugin --profile web add github:<your-name>/dsh-feishu-chat
+dsh plugin --profile web add github:Qing45/dsh-feishu-chat
 ```
 
 Then restart `dsh web` and open `设置 → 飞书`:
