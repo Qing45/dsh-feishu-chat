@@ -6,8 +6,9 @@ Feishu (Lark) bot bridge for [DeepSeek Harness](https://github.com/deepseek-ai/d
 
 ## Features
 
+- **Connect your Feishu bot by filling in App ID / App Secret** — install the plugin, open `设置 → 飞书`, paste the two values from Feishu Open Platform → your app → 凭证与基础信息, click **保存并重新连接**, and the long connection comes up immediately. No config files to edit by hand.
+- **Switch the bound workspace at any time** — the same settings page lists every workspace the profile knows about (name + path + last activity). Click any row to retarget inbound Feishu messages to that workspace; the choice persists and the router reroutes live without restarting the harness.
 - **Two-way chat** — Feishu messages arrive over the official WebSocket long connection (`im.message.receive_v1`) and are delegated to a subagent of the **bound workspace's** latest session; the text reply is sent back to the same chat automatically.
-- **Settings page** (`设置 → 飞书`) — configure the bot's **App ID / App Secret** (persisted to `$DSH_HOME/feishu-bot/config.json`, never sent anywhere) and pick which workspace inbound messages are routed to, all from the web UI.
 - **Agent → Feishu tool** — the model gets a `feishu_send_message` tool, so any session can push a message to the last chat that contacted DSH (or a given `chat_id`).
 - **Robust long connection** — protobuf frame decode (`pbbp2`), automatic ack, ping keep-alive, fragment merging (`sum`/`seq`), and reconnect with backoff, all in-process; stopping or updating the plugin tears everything down cleanly.
 
@@ -22,8 +23,8 @@ dsh plugin --profile web add github:Qing45/dsh-feishu-chat
 
 Then restart `dsh web` and open `设置 → 飞书`:
 
-1. Enter the bot's **App ID** and **App Secret** (Feishu Open Platform → your app → 凭证与基础信息), click **保存并重新连接**.
-2. Pick the workspace that inbound Feishu messages should be routed to.
+1. **Connect the bot** — fill in the **App ID** and **App Secret** (Feishu Open Platform → your app → 凭证与基础信息), click **保存并重新连接**. The status line turns green when the long connection is up.
+2. **Pick the workspace** — the workspace list shows every workspace the profile knows about (name + path + last activity). Click any row to bind it; inbound Feishu messages will be routed to that workspace's latest session from now on. Switch any time, no restart needed.
 
 > ⚠️ This plugin is community third-party code — installing it runs it with your own permissions. Check the source before installing. Credentials stay local in `$DSH_HOME/feishu-bot/config.json` and are never committed or uploaded.
 
