@@ -15,7 +15,7 @@
 # 从 npm（发布后）或本仓库：
 dsh plugin --profile web add dsh-feishu-chat
 # 或直接从 GitHub：
-dsh plugin --profile web add github:<你的用户名>/dsh-feishu-chat
+dsh plugin --profile web add github:Qing45/dsh-feishu-chat
 ```
 
 重启 `dsh web`，打开 `设置 → 飞书`：
