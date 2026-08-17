@@ -43,7 +43,7 @@ dsh-plugin  deepseek-harness  dsh  feishu  lark  bot
 
 ```bash
 # 直接从 GitHub 装(推荐,无需 npm 发布):
-dsh plugin --profile web add github:<你的用户名>/dsh-feishu-chat
+dsh plugin --profile web add github:Qing45/dsh-feishu-chat
 # 或先 clone 到本地再装:
 dsh plugin --profile web add D:\path\to\dsh-feishu-chat
 ```
